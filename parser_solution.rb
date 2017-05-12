@@ -107,6 +107,8 @@ begin
     db.execute "INSERT INTO Companies VALUES(#{i}, '#{company[0]}', '#{company[1]}', #{company[2]}, '#{company[3]}', '#{company[4]}', '#{company[5]}', '#{company[6]}', #{company[7].to_i}, '#{company[8]}', '#{company[9]}')"
   end
 
+  # SELECT AVG(RaisedAmt), State, MAX(RaisedAmt), Company, MAX(RaisedAmt)-AVG(RaisedAmt) AS diff FROM Companies GROUP BY State ORDER BY diff DESC LIMIT 1;
+  p db.execute "SELECT Company, MAX(RaisedAmt)-AVG(RaisedAmt) AS diff FROM Companies GROUP BY State ORDER BY diff DESC LIMIT 1"
 
 rescue SQLite3::Exception => e
 
