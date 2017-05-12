@@ -2,7 +2,7 @@ You are provided a CSV file from TechCrunch that contains funding data for a lar
 
 Your task is to populate a database with only entries of **unique**, **web** companies at their **most recent** round of funding. If there is more than one round of funding on the same date, choose the higher amount.
 
-You must create a script for populating the database.
+You must create a script for populating the database with only the right entries; don't just throw all the data into the DB.
 
 There are no specs; you are responsible for verifying the progress of your work.
 

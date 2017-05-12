@@ -15,3 +15,10 @@ Things to watch for:
   * nil entries
   * stray single quotes
   * String vs. Integer types on insertion
+
+
+* Bonus answer: [["Kayak", 172331666.66666666]]
+
+AVG(RaisedAmt)  |  State   |    max(RaisedAmt) | Company  |   diff            
+---------------- | ---------- | -------------- | ---------- | ----------------
+23668333.3333333 | CT         | 196000000      | Kayak      | 172331666.666667
