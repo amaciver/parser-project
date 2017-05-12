@@ -8,4 +8,4 @@ There are no specs; you are responsible for verifying the progress of your work.
 
 Your final deliverable should be a DB with 754 entries.
 
-Bonus: Which Company has the highest funding round relative to the average of its state?
+Bonus: Which Company's most recent funding round was highest relative to the average of its state?
