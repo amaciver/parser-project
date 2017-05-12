@@ -3,6 +3,7 @@ require 'sqlite3'
 
 # Reading the CSV file
 companies = CSV.read("TechCrunchcontinentalUSA.csv")
+# companies.each { |el| p el if el[1] == "google" }
 
 # Selecting only the 'web' companies
 web_companies = companies.select { |el| el[3] == 'web' }
@@ -22,9 +23,9 @@ dups.keys.each do |k|
   # Select out the actual rows based on names that were duplicate
   set = web_companies.select{ |el| el[1] == k }
 
-  # Make a set of years from subset, find max, delete the rest
+  # Make a set of years from subset, find max using mod, delete the rest
   set_of_years = set.map { |el| el[6][-2..-1] }
-  max_year = set_of_years.max
+  max_year = set_of_years.max_by { |x| (x.to_i - 17) % 100 }
   to_delete_year = set.select { |el| el[6][-2..-1] != max_year }
   remaining = set.reject { |el| el[6][-2..-1] != max_year }
   to_delete_year.each { |el| web_companies.delete(el) }
