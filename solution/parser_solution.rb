@@ -2,8 +2,7 @@ require 'csv'
 require 'sqlite3'
 
 # Reading the CSV file
-companies = CSV.read("TechCrunchcontinentalUSA.csv")
-# companies.each { |el| p el if el[1] == "google" }
+companies = CSV.read("../TechCrunchcontinentalUSA.csv")
 
 # Selecting only the 'web' companies
 web_companies = companies.select { |el| el[3] == 'web' }
