@@ -59,7 +59,9 @@ dups.keys.each do |k|
   # If there are STILL duplicates, just choose one
   if remaining.length > 1
     to_delete_dups = remaining.drop(1)
-    to_delete_dups.each { |el| web_companies.delete(el) }
+    to_delete_indices = []
+    to_delete_dups.each { |el| to_delete_indices << web_companies.index(el) }
+    to_delete_indices.each { |idx| web_companies.delete_at(idx) }
   end
 end
 

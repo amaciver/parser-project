@@ -39,7 +39,9 @@ dups.keys.each do |k|
   # If there are STILL duplicates, just choose one
   if remaining.length > 1
     to_delete_dups = remaining.drop(1)
-    to_delete_dups.each { |el| web_companies.delete(el) }
+    to_delete_indices = []
+    to_delete_dups.each { |el| to_delete_indices << web_companies.index(el) }
+    to_delete_indices.each { |idx| web_companies.delete_at(idx) }
   end
 end
 
@@ -57,6 +59,33 @@ end
 #
 # p web_companies.map { |el| el[0] }.count
 # p web_companies.map { |el| el[0] }.uniq.count
+
+
+## Alternate Solution 3
+# companies = companies.select { |arr| arr[3] == 'web' }
+#
+# companies = companies.chunk { |rows| rows[1] }.to_a
+#                      .map { |companies| companies[1] }
+#
+# companies_result = []
+#
+# companies.each do |company|
+#   current_round = []
+#
+#   company.each do |funding_round|
+#     current_round = funding_round if current_round.empty?
+#
+#     if (Date.parse(funding_round[6]) <=> Date.parse(current_round[6])) == -1
+#       current_round = funding_round
+#     elsif (Date.parse(funding_round[6]) <=> Date.parse(current_round[6])).zero?
+#       if funding_round[7].to_i > current_round[7].to_i
+#         current_round = funding_round
+#       end
+#     end
+#   end
+#
+#   companies_result << current_round
+# end
 
 begin
 
